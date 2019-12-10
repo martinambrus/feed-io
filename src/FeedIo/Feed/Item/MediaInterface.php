@@ -41,6 +41,7 @@ interface MediaInterface
 
     /**
      * @return bool
+     * @deprecated Since feed-io 4.5, you shouldn't use this method anymore
      */
     public function isThumbnail() : bool;
 
