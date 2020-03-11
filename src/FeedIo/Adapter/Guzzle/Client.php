@@ -16,6 +16,7 @@ use FeedIo\Adapter\NotFoundException;
 use FeedIo\Adapter\ResponseInterface;
 use FeedIo\Adapter\ServerErrorException;
 use FeedIo\Async\Request;
+use GuzzleHttp\Handler\StreamHandler;
 use \GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Exception\BadResponseException;
 
@@ -136,6 +137,7 @@ class Client implements ClientInterface
     protected function getOptions(\DateTime $modifiedSince) : array
     {
         return [
+            'handler' => new StreamHandler(),
             'headers' => [
                 'User-Agent' => $this->userAgent,
                 'If-Modified-Since' => $modifiedSince->format(\DateTime::RFC2822)
