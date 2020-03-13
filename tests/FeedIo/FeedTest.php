@@ -85,6 +85,23 @@ class FeedTest extends TestCase
 
         $this->assertAttributeEquals(new \ArrayIterator(array($item)), 'items', $this->object);
         $this->assertEquals($this->object->current(), $item);
+
+        $feedDate = new \DateTime('-20 days');
+        $oldItemDate = new \DateTime('-30 days');
+        $newItemDate = new \DateTime('-10 days');
+
+        $this->object->setLastModified($feedDate);
+        $item = new Feed\Item();
+        $item->setLastModified($oldItemDate);
+
+        $this->object->add($item);
+        $this->assertEquals($feedDate, $this->object->getLastModified());
+
+        $item = new Feed\Item();
+        $item->setLastModified($newItemDate);
+
+        $this->object->add($item);
+        $this->assertEquals($newItemDate, $this->object->getLastModified());
     }
     
     public function testUrl()

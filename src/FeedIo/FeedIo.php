@@ -232,8 +232,6 @@ class FeedIo
     public function getBaseFixers() : array
     {
         return array(
-            new Reader\Fixer\LastModified(),
-            new Reader\Fixer\LastModifiedSince(),
             new Reader\Fixer\HttpLastModified(),
             new Reader\Fixer\PublicId(),
         );
@@ -317,6 +315,7 @@ class FeedIo
 
         if ($modifiedSince instanceof \DateTime) {
             $this->addFilter(new ModifiedSince($modifiedSince));
+            $feed->setLastModified($modifiedSince);
         }
 
         $this->logAction($feed, "read access : $url into a feed instance");
