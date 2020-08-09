@@ -15,10 +15,11 @@ use FeedIo\Reader\Result;
 interface CallbackInterface
 {
 
-    /**
-     * @param Result $result
-     */
-    public function process(Result $result) : void;
+  /**
+   * @param Result $result
+   * @param Request $request
+   */
+    public function process(Result $result, Request $request) : void;
 
     /**
      * @param Request $request

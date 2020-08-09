@@ -72,7 +72,7 @@ class Reader implements ReaderInterface
         $feed = $this->newFeed();
         $document = $this->reader->handleResponse($request->getResponse(), $feed);
         $result = new Result($document, $feed, $request->getModifiedSince(), $request->getResponse(), $request->getUrl());
-        $this->callback->process($result);
+        $this->callback->process($result, $request);
     }
 
     /**
