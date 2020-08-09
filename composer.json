@@ -1,5 +1,5 @@
 {
-    "name": "debril/feed-io",
+    "name": "martinambrus/feed-io",
     "description": "PHP library built to consume and serve JSONFeed / RSS / Atom feeds",
     "keywords": ["rss", "atom","jsonfeed", "feed", "news", "CLI", "client"],
     "homepage": "https://feed-io.net",
@@ -9,6 +9,10 @@
         {
             "name": "Alexandre Debril",
             "email": "alex.debril@gmail.com"
+        },
+        {
+            "name": "Martin Ambrus",
+            "email": "martin@martinambrus.com"
         }
     ],
     "bin" : [
